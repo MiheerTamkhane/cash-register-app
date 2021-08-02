@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Cash-register</title>
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+  <body>
+    <h1>Cash Register Manager</h1>
+    <p>
+      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Culpa corrupti
+      corporis nobis illum quaerat optio mollitia sit repellendus quod, nostrum
+    </p>
+    <div class="container">
+      <div class="bill-amount">
+        <label for="bill-input">Bill Amount : </label>
+        <input  id="bill"  type="number"/>
+      </div>
+      
+      <div class="cash-given" id="cash-given">
+        <label for="bill-input">Cash Given : </label>
+        <input id="cash" type="number" />
+       
+      </div>
+      <button id="button">calculate</button>
+      <div id="messageDiv" class="messageDiv"></div>
+    </div>
+   
+    <div class="output" id="output">
+      <h2>Return value : </h2>
+      <table id="table" >
+        <tr>
+          <th>Note</td>
+          <td>2000</td>
+          <td>500</td>
+          <td>100</td>
+          <td>20</td>
+          <td>10</td>
+          <td>5</td>
+          <td>1</td>
+          </tr>
+        <tr>
+          <th>No.of Notes</td>
+          <td class="noOfNotes"></td>
+          <td class="noOfNotes"></td>
+          <td class="noOfNotes"></td>
+          <td class="noOfNotes"></td>
+          <td class="noOfNotes"></td>
+          <td class="noOfNotes"></td>
+          <td class="noOfNotes"></td>
+          </tr>
+    </table>
+    </div>
+    <script src="./app.js"></script>
+  </body>
+</html>
