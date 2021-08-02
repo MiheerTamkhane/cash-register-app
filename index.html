@@ -15,27 +15,31 @@
     </p>
     <div class="container">
       <div class="bill-amount">
-        <label for="bill-input">Bill Amount : </label>
+        <label for="bill">Bill Amount : </label>
         <input  id="bill"  type="number"/>
+        <button id="next-btn">Next</button>
       </div>
       
       <div class="cash-given" id="cash-given">
-        <label for="bill-input">Cash Given : </label>
+        <label for="cash">Cash Given : </label>
         <input id="cash" type="number" />
-       
+        <button id="button">calculate</button>
       </div>
-      <button id="button">calculate</button>
+     
       <div id="messageDiv" class="messageDiv"></div>
     </div>
    
     <div class="output" id="output">
-      <h2>Return value : </h2>
+      
       <table id="table" >
+        <caption>Change to Return : </caption>
         <tr>
           <th>Note</td>
           <td>2000</td>
           <td>500</td>
+          <td>200</td>
           <td>100</td>
+          <td>50</td>
           <td>20</td>
           <td>10</td>
           <td>5</td>
@@ -43,6 +47,8 @@
           </tr>
         <tr>
           <th>No.of Notes</td>
+          <td class="noOfNotes"></td>
+          <td class="noOfNotes"></td>
           <td class="noOfNotes"></td>
           <td class="noOfNotes"></td>
           <td class="noOfNotes"></td>

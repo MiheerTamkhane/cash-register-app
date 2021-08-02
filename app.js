@@ -1,51 +1,52 @@
-const bill = document.getElementById("bill");
-const cash = document.getElementById("cash");
-const calcButton = document.getElementById("button");
-const table = document.getElementById("table");
-const output = document.getElementById("output");
-const noOfNotes = document.querySelectorAll(".noOfNotes");
-const messageDiv = document.getElementById("messageDiv");
-const arrOfNotes = [2000, 500, 100, 20, 10, 5, 1];
+const billAmt = document.querySelector("#bill");
+const cashAmt = document.querySelector("#cash");
+const button = document.querySelector("#button");
+const errMsgDiv = document.querySelector("#messageDiv");
+const numberOfNotes = document.querySelectorAll(".noOfNotes");
+const nextBtn = document.querySelector("#next-btn");
+const cashGivenDiv = document.querySelector("#cash-given");
+const notesArr = [2000, 500, 200, 100, 50, 20, 10, 5, 1];
 
-const cashRegisterHandler = () => {
-  let inputBillValue = Number(bill.value);
-  let inputCashValue = Number(cash.value);
-
-  if (inputBillValue > 0 && inputCashValue > 0) {
-    if (!inputCashValue) {
-      alert("enter valid amt");
-      return;
-    }
-    if (inputBillValue > inputCashValue) {
-      alert("error bill max");
-    }
-    calcNotes(inputBillValue, inputCashValue);
+//Click Event function
+nextBtn.addEventListener("click", () => {
+  hideErrMsg();
+  if (Number(billAmt.value)) {
+    cashGivenDiv.style.display = "block";
   } else {
-    alert("enter valid bill");
+    errMsgHandler("Please enter bill amount");
   }
-};
-
-const calcNotes = (billAmt, cashGiven) => {
-  let returnAmt = cashGiven - billAmt;
-  console.log(returnAmt);
-  if (returnAmt < 1) {
-    alert("no returns");
+});
+button.addEventListener("click", () => {
+  hideErrMsg();
+  if (billAmt.value > 0) {
+    if (cashAmt.value >= billAmt.value) {
+      const returnAmt = cashAmt.value - billAmt.value;
+      calculateAmt(returnAmt);
+      if (returnAmt == 0) {
+        errMsgHandler("No return amount to give!");
+      }
+    } else {
+      errMsgHandler("You need to give more money to pay bill.");
+    }
+  } else {
+    errMsgHandler("Please enter valid bill amount!");
   }
-
-  output.style.display = "block";
-  for (let i = 0; i < arrOfNotes.length; i++) {
-    returnAmt = compare(returnAmt, arrOfNotes[i], i);
+});
+//hide err msg function
+function hideErrMsg() {
+  errMsgDiv.style.display = "none";
+}
+//main calculate amt function
+function calculateAmt(returnAmt) {
+  for (let i = 0; i < notesArr.length; i++) {
+    const notes = Math.trunc(returnAmt / notesArr[i]);
+    returnAmt = returnAmt % notesArr[i];
+    numberOfNotes[i].innerText = notes;
   }
-};
+}
 
-const compare = (remainder, noteAmt, index) => {
-  if (remainder >= noteAmt) {
-    let notes = Math.floor(remainder / noteAmt);
-    remainder = remainder - notes * noteAmt;
-    noOfNotes[index].innerText = `${notes}`;
-    console.log(notes);
-  }
-  return remainder;
-};
-
-calcButton.addEventListener("click", cashRegisterHandler);
+//error msg function
+function errMsgHandler(msg) {
+  errMsgDiv.style.display = "block";
+  errMsgDiv.innerText = msg;
+}
