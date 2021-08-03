@@ -5,34 +5,36 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Cash-register</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="./style.css" />
   </head>
   <body>
-    <h1>Cash Register Manager</h1>
-    <p>
-      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Culpa corrupti
-      corporis nobis illum quaerat optio mollitia sit repellendus quod, nostrum
-    </p>
+    
     <div class="container">
-      <div class="bill-amount">
-        <label for="bill">Bill Amount : </label>
-        <input  id="bill"  type="number"/>
-        <button id="next-btn">Next</button>
+      <h1>Cash Register Manager</h1>
+    <p>
+      Cash Register Manager is a web app which takes bill amount & cash given to the shopkeeper and shows how much money returns to customer in minimum notes format.
+    </p>
+<div class="center-container">
+  <div class="bill-amount inputs">
+    <label for="bill">Bill Amount : </label>
+    <input  id="bill"  type="number"/>
+    <button id="next-btn">Next</button>
+  </div>
+  
+  <div class="cash-given inputs" id="cash-given">
+    <label for="cash">Cash Given : </label>
+    <input id="cash" type="number" />
+    <button id="button">calculate</button>
+  </div>
+ 
+</div>
+      <div id="messageDiv" class="messageDiv">
+        
       </div>
-      
-      <div class="cash-given" id="cash-given">
-        <label for="cash">Cash Given : </label>
-        <input id="cash" type="number" />
-        <button id="button">calculate</button>
-      </div>
-     
-      <div id="messageDiv" class="messageDiv"></div>
-    </div>
-   
-    <div class="output" id="output">
-      
+
       <table id="table" >
-        <caption>Change to Return : </caption>
+        <caption><h3>Change to Return : </h3></caption>
         <tr>
           <th>Note</td>
           <td>2000</td>
@@ -57,8 +59,31 @@
           <td class="noOfNotes"></td>
           <td class="noOfNotes"></td>
           </tr>
-    </table>
+      </table>
+  </div>
+  <footer>
+    <h3>Let's Connect</h3>
+    <div class="footer-links">
+      <a href="https://github.com/MiheerTamkhane?tab=repositories"
+        ><i class="fab fa-github"></i
+      ></a>
+      <a href="https://www.linkedin.com/in/miheer-tamkhane-19417b19a/"
+        ><i class="fab fa-linkedin"></i
+      ></a>
+      <a href="https://twitter.com/miheertamkhane"
+        ><i class="fab fa-twitter"></i
+      ></a>
     </div>
+   
+    <p class="footer-portfolio">
+      Created with ❤️ by
+      <strong
+        ><em
+          ><a href="https://miheertamkhane.netlify.app/">M.Dev</a></em
+        ></strong
+      >
+    </p>
+  </footer>
     <script src="./app.js"></script>
   </body>
 </html>
