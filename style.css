@@ -145,7 +145,7 @@ footer {
 }
 
 /* Media queries here  */
-@media screen and (min-width: 360px) and (max-width: 640px) {
+@media screen and (min-width: 340px) and (max-width: 1000px) {
   th,
   td {
     font-size: 0.6rem;
