@@ -8,32 +8,37 @@ const cashGivenDiv = document.querySelector("#cash-given");
 const table = document.querySelector("#table");
 const notesArr = [2000, 500, 200, 100, 50, 20, 10, 5, 1];
 
-//Click Event function
-nextBtn.addEventListener("click", () => {
-  hideErrMsg();
-  if (Number(billAmt.value) > 0) {
-    cashGivenDiv.style.display = "flex";
-    nextBtn.style.display = "none";
-  } else {
-    errMsgHandler("Please enter valid bill amount");
-  }
-});
 button.addEventListener("click", () => {
+  const billValue = parseInt(billAmt.value);
+  const cashValue = parseInt(cashAmt.value);
   hideErrMsg();
-
-  if (billAmt.value > 0) {
-    if (cashAmt.value >= billAmt.value) {
-      const returnAmt = cashAmt.value - billAmt.value;
+  table.style.display = "none";
+  if (billValue > 0) {
+    if (cashValue >= billValue) {
+      const returnAmt = cashValue - billValue;
+      console.log(returnAmt);
       calculateAmt(returnAmt);
       table.style.display = "block";
-      if (returnAmt == 0) {
-        errMsgHandler("No return amount to give!");
-      }
+
+      // if (returnAmt === 0) {
+      //   errMsgHandler("No return amount to give!");
+      //   return;
+      // }
     } else {
       errMsgHandler("You need to give more money to pay bill.");
     }
   } else {
     errMsgHandler("Please enter valid bill amount!");
+  }
+});
+//Click Event function
+nextBtn.addEventListener("click", () => {
+  hideErrMsg();
+  if (billAmt.value > 0) {
+    cashGivenDiv.style.display = "flex";
+    nextBtn.style.display = "none";
+  } else {
+    errMsgHandler("Please enter valid bill amount");
   }
 });
 //hide err msg function
