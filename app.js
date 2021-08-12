@@ -48,6 +48,7 @@ function hideErrMsg() {
 //main calculate amt function
 function calculateAmt(returnAmt) {
   for (let i = 0; i < notesArr.length; i++) {
+    numberOfNotes[i].style.backgroundColor = "#ececec";
     const notes = Math.trunc(returnAmt / notesArr[i]);
     returnAmt = returnAmt % notesArr[i];
     numberOfNotes[i].innerText = notes;
