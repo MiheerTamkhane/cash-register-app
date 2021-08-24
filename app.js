@@ -6,6 +6,7 @@ const numberOfNotes = document.querySelectorAll(".noOfNotes");
 const nextBtn = document.querySelector("#next-btn");
 const cashGivenDiv = document.querySelector("#cash-given");
 const table = document.querySelector("#table");
+const caption = document.querySelector("#caption");
 const notesArr = [2000, 500, 200, 100, 50, 20, 10, 5, 1];
 
 button.addEventListener("click", () => {
@@ -19,6 +20,7 @@ button.addEventListener("click", () => {
       console.log(returnAmt);
       calculateAmt(returnAmt);
       table.style.display = "block";
+      caption.innerHTML = `<h3>Change to Return : ₹ ${returnAmt}</h3>`;
 
       // if (returnAmt === 0) {
       //   errMsgHandler("No return amount to give!");
